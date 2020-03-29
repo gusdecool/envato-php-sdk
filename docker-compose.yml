@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+    app:
+        image: gusdecool/php-cli
+        volumes:
+            - ./:/app
+            - composer_cache:/root/.composer/cache
+volumes:
+    composer_cache:
+        driver: local

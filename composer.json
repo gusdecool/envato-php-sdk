@@ -1,0 +1,35 @@
+{
+    "name": "gusdecool/envato-sdk",
+    "description": "Envato PHP SDK",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Budi Arsana",
+            "email": "gusdecool@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "guzzlehttp/guzzle": "~6.0",
+        "jms/serializer": "^3.6",
+        "myclabs/php-enum": "^1.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gusdecool\\EnvatoSDK\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Gusdecool\\EnvatoSDKTest\\": "test/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}
