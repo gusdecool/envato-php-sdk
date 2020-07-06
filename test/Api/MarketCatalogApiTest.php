@@ -34,5 +34,6 @@ final class MarketCatalogApiTest extends AbstractUnitTestCase
 
         $this->assertIsInt($result['took']);
         $this->assertIsArray($result['matches']);
+        $this->assertTrue(count($result['matches']) > 0);
     }
 }
