@@ -2,12 +2,10 @@
 
 namespace Gusdecool\EnvatoSDK\Api;
 
-use Gusdecool\EnvatoSDK\Parameter\AbstractSearchItemsParam;
-use Gusdecool\EnvatoSDK\Result\SearchItemsResult;
 use GuzzleHttp\Exception\GuzzleException;
 
 /**
- * Class MarketCatalogApi
+ * Envato Market Catalog API.
  */
 class MarketCatalogApi extends AbstractApi
 {
@@ -15,24 +13,21 @@ class MarketCatalogApi extends AbstractApi
     /**
      * Search for items
      *
-     * @param AbstractSearchItemsParam $param
-     * @return SearchItemsResult
+     * @param array $params
+     * @return array
      * @throws GuzzleException
-     * @see https://build.envato.com/api#search_GET_search_item_json
+     * @see https://build.envato.com/api#search_GET_search_item_json docs
      */
-    public function searchItems(AbstractSearchItemsParam $param): SearchItemsResult
+    public function searchItems(array $params): array
     {
         $response = $this->getClient()->request(
             'GET',
             '/v1/discovery/search/search/item',
             [
-                'query' => $this->toArray($param)
+                'query' => $params
             ]
         );
 
-        /** @var SearchItemsResult $result */
-        $result = $this->deserialize((string) $response->getBody(), SearchItemsResult::class);
-
-        return $result;
+        return json_decode((string) $response->getBody(), true);
     }
 }
