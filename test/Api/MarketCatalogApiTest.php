@@ -3,9 +3,9 @@
 namespace Gusdecool\EnvatoSDKTest\Api;
 
 use Gusdecool\EnvatoSDK\Api\MarketCatalogApi;
-use Gusdecool\EnvatoSDK\Result\SearchItemsResult;
+use Gusdecool\EnvatoSDK\Enum\SiteEnum;
+use Gusdecool\EnvatoSDK\Utility\HttpClientBuilder;
 use Gusdecool\EnvatoSDKTest\AbstractUnitTestCase;
-use Gusdecool\EnvatoSDKTest\Stub\SearchItemsParamStub;
 use GuzzleHttp\Exception\GuzzleException;
 
 final class MarketCatalogApiTest extends AbstractUnitTestCase
@@ -17,7 +17,7 @@ final class MarketCatalogApiTest extends AbstractUnitTestCase
     {
         parent::setUp();
 
-        $this->api = new MarketCatalogApi(getenv('AUTH_TOKEN'));
+        $this->api = new MarketCatalogApi(HttpClientBuilder::personal($_ENV['PERSONAL_AUTH_TOKEN']));
     }
 
     /**
@@ -25,10 +25,14 @@ final class MarketCatalogApiTest extends AbstractUnitTestCase
      */
     public function testSearchItems(): void
     {
+        $result = $this->api->searchItems(
+            [
+                'term' => 'hotel',
+                'site' => SiteEnum::THEME_FOREST
+            ]
+        );
 
-        $result = $this->api->searchItems(new SearchItemsParamStub());
-
-        $this->assertInstanceOf(SearchItemsResult::class, $result);
-        $this->assertIsInt($result->getTook());
+        $this->assertIsInt($result['took']);
+        $this->assertIsArray($result['matches']);
     }
 }

@@ -18,8 +18,4 @@
             <directory suffix=".php">./src</directory>
         </whitelist>
     </filter>
-    <php>
-        <!-- Set auth token from CLI for safety-->
-        <env name="AUTH_TOKEN" value="SET_TOKEN_ENV_FROM_CLI" />
-    </php>
 </phpunit>

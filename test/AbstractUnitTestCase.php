@@ -2,7 +2,7 @@
 
 namespace Gusdecool\EnvatoSDKTest;
 
-use Doctrine\Common\Annotations\AnnotationRegistry;
+use Dotenv\Dotenv;
 use PHPUnit\Framework\TestCase;
 
 abstract class AbstractUnitTestCase extends TestCase
@@ -12,6 +12,7 @@ abstract class AbstractUnitTestCase extends TestCase
     {
         parent::setUp();
 
-        AnnotationRegistry::registerLoader('class_exists'); // Load Doctrine annotation
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+        $dotenv->load();
     }
 }

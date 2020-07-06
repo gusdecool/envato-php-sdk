@@ -1,13 +1,8 @@
-<?php /** @noinspection PhpUnusedPrivateFieldInspection */
+<?php
 
 namespace Gusdecool\EnvatoSDK\Enum;
 
-use MyCLabs\Enum\Enum;
-
-/**
- * @method static self WORDPRESS()
- */
-final class CategoryEnum extends Enum
+final class CategoryEnum
 {
-    private const WORDPRESS = 'wordpress';
+    public const WORDPRESS = 'wordpress';
 }
