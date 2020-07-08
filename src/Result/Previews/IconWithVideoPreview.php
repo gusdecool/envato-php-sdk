@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUnused */
 
 namespace Gusdecool\EnvatoSDK\Result\Previews;
 
@@ -32,5 +32,4 @@ class IconWithVideoPreview
      * @var Image[]
      */
     public array $image_urls = [];
-
 }

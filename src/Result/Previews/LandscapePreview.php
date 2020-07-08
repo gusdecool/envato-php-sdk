@@ -17,5 +17,4 @@ class LandscapePreview
      * @var Image[]
      */
     public array $image_urls = [];
-
 }
