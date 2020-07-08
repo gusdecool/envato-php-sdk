@@ -4,6 +4,7 @@ namespace Gusdecool\EnvatoSDKTest\Api;
 
 use Gusdecool\EnvatoSDK\Api\MarketCatalogApi;
 use Gusdecool\EnvatoSDK\Enum\SiteEnum;
+use Gusdecool\EnvatoSDK\Parameter\SearchItemsParameter;
 use Gusdecool\EnvatoSDK\Utility\HttpClientBuilder;
 use Gusdecool\EnvatoSDKTest\AbstractUnitTestCase;
 use GuzzleHttp\Exception\GuzzleException;
@@ -25,15 +26,14 @@ final class MarketCatalogApiTest extends AbstractUnitTestCase
      */
     public function testSearchItems(): void
     {
-        $result = $this->api->searchItems(
-            [
-                'term' => 'hotel',
-                'site' => SiteEnum::THEME_FOREST
-            ]
-        );
+        $param = new SearchItemsParameter();
+        $param->term = 'hotel';
+        $param->site = SiteEnum::THEME_FOREST;
 
-        $this->assertIsInt($result['took']);
-        $this->assertIsArray($result['matches']);
-        $this->assertTrue(count($result['matches']) > 0);
+        $result = $this->api->searchItems($param);
+
+        $this->assertIsInt($result->took);
+        $this->assertIsArray($result->matches);
+        $this->assertTrue(count($result->matches) > 0);
     }
 }
