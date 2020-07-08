@@ -2,8 +2,8 @@
 
 namespace Gusdecool\EnvatoSDK\Api;
 
+use Gusdecool\EnvatoSDK\Utility\SerializerBuilder;
 use GuzzleHttp\ClientInterface;
-use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
 
 abstract class AbstractApi
@@ -14,7 +14,7 @@ abstract class AbstractApi
 
     public function __construct(ClientInterface $client)
     {
-        $this->serializer = SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::build();
         $this->client = $client;
     }
 

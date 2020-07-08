@@ -150,9 +150,10 @@ final class Item
      * item attribute details
      *
      * @var Attribute[]
-     * TODO to expose
+     * @Serializer\Expose()
+     * @Serializer\Type("array<Gusdecool\EnvatoSDK\Result\Sub\Attribute>")
      */
-    public array $attributes;
+    public array $attributes = [];
 
     /**
      * photo attribute details
