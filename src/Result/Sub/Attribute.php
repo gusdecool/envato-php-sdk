@@ -4,5 +4,15 @@ namespace Gusdecool\EnvatoSDK\Result\Sub;
 
 class Attribute
 {
-// TODO to implement
+    /**
+     * attribute name
+     */
+    public string $name;
+
+    /**
+     * attribute value
+     *
+     * @var mixed TODO find out the type
+     */
+    public $value;
 }

@@ -4,5 +4,8 @@ namespace Gusdecool\EnvatoSDK\Result\Previews;
 
 class LiveSite
 {
-// TODO to implement
+    /**
+     * URL to live site
+     */
+    public string $url;
 }
