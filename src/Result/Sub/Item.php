@@ -15,9 +15,9 @@ final class Item
     /**
      * item id
      * @Serializer\Expose()
-     * @Serializer\Type("string")
+     * @Serializer\Type("int")
      */
-    public string $id;
+    public int $id;
 
     /**
      * item name

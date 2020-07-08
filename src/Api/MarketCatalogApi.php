@@ -4,6 +4,7 @@ namespace Gusdecool\EnvatoSDK\Api;
 
 use Gusdecool\EnvatoSDK\Parameter\SearchItemsParameter;
 use Gusdecool\EnvatoSDK\Result\SearchItemsResult;
+use Gusdecool\EnvatoSDK\Result\Sub\Item;
 use GuzzleHttp\Exception\GuzzleException;
 
 /**
@@ -30,6 +31,27 @@ class MarketCatalogApi extends AbstractApi
 
         /** @var SearchItemsResult $result */
         $result = $this->deserialize((string) $response->getBody(), SearchItemsResult::class);
+
+        return $result;
+    }
+
+    /**
+     * Returns all details of a particular item on Envato Market.
+     * @throws GuzzleException
+     * @see https://build.envato.com/api#market_0_Catalog_Item docs
+     */
+    public function singleItem(string $id): Item
+    {
+        $response = $this->getClient()->request(
+            'GET',
+            '/v3/market/catalog/item',
+            [
+                'query' => ['id' => $id]
+            ]
+        );
+
+        /** @var Item $result */
+        $result = $this->deserialize((string) $response->getBody(), Item::class);
 
         return $result;
     }
