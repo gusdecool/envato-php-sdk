@@ -16,7 +16,12 @@ class SearchItemsResultTest extends TestCase
 
         /** @var SearchItemsResult $result */
         $result = $serializer->deserialize($json, SearchItemsResult::class, 'json');
+        $item = $result->matches[0];
 
         $this->assertEquals(17, $result->took);
+        $this->assertEquals(
+            'https://previews.customer.envatousercontent.com/files/282632194/preview/01_preview.__large_preview.jpg',
+            $item->previews->iconWithLandscapePreview->landscapeUrl
+        );
     }
 }

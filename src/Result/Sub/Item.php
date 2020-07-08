@@ -10,7 +10,7 @@ use JMS\Serializer\Annotation as Serializer;
 /**
  * @Serializer\ExclusionPolicy("all")
  */
-class Item
+final class Item
 {
     /**
      * item id
@@ -141,10 +141,10 @@ class Item
     /**
      * Preview image types
      *
-     * @var AllPreviews[]
-     * TODO to expose
+     * @Serializer\Expose()
+     * @Serializer\Type("Gusdecool\EnvatoSDK\Result\Previews\AllPreviews")
      */
-    public array $previews = [];
+    public AllPreviews $previews;
 
     /**
      * item attribute details

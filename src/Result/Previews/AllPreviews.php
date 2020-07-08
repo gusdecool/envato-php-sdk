@@ -1,8 +1,15 @@
 <?php
 
+/** @noinspection PhpUnused */
+
 namespace Gusdecool\EnvatoSDK\Result\Previews;
 
-class AllPreviews
+use JMS\Serializer\Annotation as Serializer;
+
+/**
+ * @Serializer\ExclusionPolicy("all")
+ */
+final class AllPreviews
 {
     /**
      * URL to thumbnail preview
@@ -12,40 +19,42 @@ class AllPreviews
     /**
      * URL to icon with thumbnail preview
      */
-    public ?IconWithThumbnailPreview $icon_with_thumbnail_preview;
+    public ?IconWithThumbnailPreview $iconWithThumbnailPreview;
 
     /**
      * URL to landscape preview
+     * @Serializer\Expose()
+     * @Serializer\Type("Gusdecool\EnvatoSDK\Result\Previews\IconWithLandscapePreview")
      */
-    public ?IconWithLandscapePreview $icon_with_landscape_preview;
+    public ?IconWithLandscapePreview $iconWithLandscapePreview;
 
     /**
      * URL to icon with square preview
      */
-    public ?IconWithSquarePreview $icon_with_square_preview;
+    public ?IconWithSquarePreview $iconWithSquarePreview;
 
     /**
      * URL to icon with audio preview
      */
-    public IconWithAudioPreview $icon_with_audio_preview;
+    public IconWithAudioPreview $iconWithAudioPreview;
 
     /**
      * URL to icon with video preview
      */
-    public ?IconWithVideoPreview $icon_with_video_preview;
+    public ?IconWithVideoPreview $iconWithVideoPreview;
 
     /**
      * URL to live site
      */
-    public ?LiveSite $live_site;
+    public ?LiveSite $liveSite;
 
     /**
      * URL to icon preview
      */
-    public ?IconPreview $icon_preview;
+    public ?IconPreview $iconPreview;
 
     /**
      * URL to landscape preview
      */
-    public ?LandscapePreview $landscape_preview;
+    public ?LandscapePreview $landscapePreview;
 }
