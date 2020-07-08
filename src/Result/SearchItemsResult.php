@@ -21,6 +21,8 @@ class SearchItemsResult
 
     /**
      * List of found items.
+     *
+     * @var Item[]
      */
     public array $matches = [];
 
