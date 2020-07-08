@@ -1,3 +1,6 @@
+# DISCLAIMER: work in progress
+Lot of properties not fully serialized.
+
 # Envato PHP SDK
 Implementation API source: https://build.envato.com/api
 
