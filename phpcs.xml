@@ -13,5 +13,6 @@
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
     <rule ref="Generic.CodeAnalysis"/>
     <rule ref="PSR12"/>
-    <rule ref="Squiz.NamingConventions.ValidVariableName"/>
+    <rule ref="Squiz.NamingConventions.ValidVariableName.NotCamelCaps"/>
+<!--    <rule ref="Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps"/>-->
 </ruleset>

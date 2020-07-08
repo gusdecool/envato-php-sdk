@@ -1,4 +1,6 @@
-<?php /** @noinspection PhpUnused */
+<?php
+
+/** @noinspection PhpUnused */
 
 namespace Gusdecool\EnvatoSDK\Result\Previews;
 
